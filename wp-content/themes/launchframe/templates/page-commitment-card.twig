@@ -1,0 +1,22 @@
+{% extends "base.twig" %}
+
+{% block content %}
+
+<section>
+	<div class="row vm-xs-top-4 vm-xs-bottom-2 vm-lg-top-5 vm-lg-bottom-5">
+		<div class="col-lg-8 offset-lg-2 calculate-giving">
+			<p>$<input type="number" pattern=" 0+\.[0-9]*[1-9][0-9]*$" onkeypress="return event.charCode >= 48 && event.charCode <= 57" class="annual-gift" name="annual-gift" placeholder="0"> What I normally give in a year</p>
+			<p>$<input type="number" pattern=" 0+\.[0-9]*[1-9][0-9]*$" onkeypress="return event.charCode >= 48 && event.charCode <= 57" class="annual-addition" name="annual-addition" placeholder="0"> My expanded generosity for Devoted / 365</p>
+			<p>$<input type="number" pattern=" 0+\.[0-9]*[1-9][0-9]*$" onkeypress="return event.charCode >= 48 && event.charCode <= 57" class="one-time" name="one-time" placeholder="0"> One-time stored resources gift</p>
+			<p>$<input type="number" pattern=" 0+\.[0-9]*[1-9][0-9]*$" onkeypress="return event.charCode >= 48 && event.charCode <= 57" class="total" name="total" placeholder="0" readonly> <strong>Total contribution</strong></p>
+			<p>$<input type="number" pattern=" 0+\.[0-9]*[1-9][0-9]*$" onkeypress="return event.charCode >= 48 && event.charCode <= 57" class="campaign-double" name="campaign-double" placeholder="0" readonly> <strong>Over two years</strong></p>
+		</div>
+	</div>
+	<div class="row vm-xs-top-4 vm-xs-bottom-2 vm-lg-top-5 vm-lg-bottom-5">
+		<div class="col-lg-8 offset-lg-2">
+			Make a commitment
+		</div>
+	</div>
+</section>
+
+{% endblock %}

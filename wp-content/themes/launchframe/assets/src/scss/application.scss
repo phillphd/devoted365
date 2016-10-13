@@ -1,0 +1,440 @@
+@import "custom_variables";
+@import "../../vendor/bootstrap/scss/bootstrap";
+@import "utilities";
+@import "grid_extensions";
+
+body {
+    font-family: "Lato";
+    font-size: 16px;
+    letter-spacing: 1.1px;
+    color: #4D4D4D;
+    @include media-breakpoint-up(md) {
+        font-size: 18px;
+        letter-spacing: 1.2px;
+    }
+    @include media-breakpoint-up(lg) {
+        font-size: 22px;
+        letter-spacing: 1.3px;
+    }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 700;
+}
+
+header,
+main,
+footer {
+    position: relative;
+    -webkit-font-smoothing: antialiased;
+}
+
+header {
+    margin: 60px 0;
+    img {
+        display: block;
+        max-width: 240px;
+        margin: 0 auto;
+        @include media-breakpoint-up(lg) {
+            max-width: 300px;
+            margin: 0;
+        }
+    }
+}
+
+main {
+    padding: 30px 40px;
+    margin: 0 auto;
+    background-color: fade-out(#FFF, .1);
+    border: 1px solid $brand-primary;
+    border-radius: 2px;
+    box-shadow: 0 0 30px 0 fade-out(#000, .9);
+}
+
+footer {
+    margin: 30px 0;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+.main-nav {
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    list-style-type: none;
+    li {
+        position: relative;
+        display: inline-block;
+        padding: 0 10px;
+        font-size: 14px;
+        font-weight: 500;
+        text-transform: uppercase;
+        border-right: 1px solid $brand-primary;
+        @include media-breakpoint-up(lg) {
+            padding: 0 30px;
+        }
+        &:hover,
+        &.current-menu-item {
+            &::after {
+                @include media-breakpoint-up(lg) {
+                    width: calc(100% - 60px);
+                }
+            }
+        }
+        &:last-child {
+            border-right: 0;
+        }
+        &::after {
+            position: absolute;
+            right: 0;
+            bottom: -1px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            margin: 0 auto;
+            background-color: $brand-primary;
+            content: "";
+            transition: .2s;
+        }
+        a {
+            color: #000;
+            &:hover,
+            &:focus {
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+.logo-rocc {
+    display: block;
+    width: 150px;
+    margin: 0 auto;
+    @include media-breakpoint-up(lg) {
+        width: 200px;
+    }
+}
+
+.media-video {
+    position: relative;
+    height: 250px;
+    transition: .2s;
+    @include media-breakpoint-up(lg) {
+        height: 500px;
+    }
+    &::after {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: fade-out(#000, .7);
+        content: "";
+        opacity: 0;
+        transition: .2s;
+    }
+    &:hover {
+        cursor: pointer;
+        box-shadow: 0 0 30px -15px #000;
+        &::after {
+            opacity: 1;
+        }
+        .play-btn {
+            background-color: fade-out($brand-primary, .5);
+            transform: translateY(-50%) translateX(-50%) scale(1.05);
+        }
+    }
+    &.small-media {
+        height: 250px;
+        @include media-breakpoint-up(lg) {
+            height: 300px;
+        }
+    }
+    .play-btn {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: 9;
+        width: 75px;
+        height: 75px;
+        border: 3px solid #FFF;
+        border-radius: 50%;
+        content: "";
+        transform: translateY(-50%) translateX(-50%);
+        transition: .2s;
+        @include media-breakpoint-up(lg) {
+            width: 90px;
+            height: 90px;
+        }
+        &::after {
+            position: absolute;
+            top: 50%;
+            left: calc(50% + 6px);
+            width: 0;
+            height: 0;
+            border-top: 18px solid transparent;
+            border-bottom: 18px solid transparent;
+            border-left: 30px solid #FFF;
+            content: "";
+            transform: translateY(-50%) translateX(-50%);
+            @include media-breakpoint-up(lg) {
+                border-top: 25px solid transparent;
+                border-bottom: 25px solid transparent;
+                border-left: 40px solid #FFF;
+            }
+        }
+    }
+}
+
+.faq {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    li {
+        margin-bottom: 15px;
+    }
+    &--active {
+        .faq__state::before {
+            width: 11px;
+            height: 2px;
+        }
+        .faq__question {
+            padding: 20px 10px;
+            padding-right: 50px;
+            background-color: transparent;
+            border: 1px solid transparent;
+            border-bottom: 1px solid $brand-primary;
+            &:hover {
+                background-color: transparent;
+            }
+        }
+        .faq__answer {
+            max-height: 1000px;
+            padding: 30px;
+            transition: max-height .4s ease-out, padding-top .4s ease-out, padding-bottom .4s ease-out;
+        }
+    }
+    &__state {
+        position: absolute;
+        top: 50%;
+        right: 20px;
+        width: 20px;
+        height: 20px;
+        border: 2px solid $brand-primary;
+        border-radius: 50%;
+        content: "";
+        transform: translateY(-50%);
+        &::after,
+        &::before {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 2px;
+            height: 11px;
+            background-color: $brand-primary;
+            content: "";
+            transform: translateY(-50%) translateX(-50%);
+        }
+        &::after {
+            width: 11px;
+            height: 2px;
+        }
+    }
+    &__question {
+        position: relative;
+        padding: 10px;
+        padding-right: 50px;
+        background-color: fade-out($brand-primary, .9);
+        border: 1px solid $brand-primary;
+        border-radius: 2px;
+        transition: .4s;
+        &:hover {
+            cursor: pointer;
+            background-color: fade-out($brand-primary, .8);
+        }
+        h5 {
+            margin: 0;
+            font-size: 16px;
+            @include media-breakpoint-up(lg) {
+                font-size: 1.25rem;
+            }
+        }
+    }
+    &__answer {
+        height: 100%;
+        max-height: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #F7F7F7;
+        transition: max-height .4s ease-out, padding-top .4s ease-out, padding-bottom .4s ease-out;
+        p {
+            font-size: 15px;
+            @include media-breakpoint-up(lg) {
+                font-size: 18px;
+            }
+        }
+    }
+    ul {
+        margin: 0 0 20px;
+        font-size: 15px;
+        @include media-breakpoint-up(lg) {
+            margin: 20px 20px 30px;
+            font-size: 18px;
+        }
+        li {
+            margin-bottom: 5px;
+        }
+    }
+}
+
+.card {
+    ul {
+        padding: 0;
+        margin: 0;
+        font-size: 16px;
+        list-style-type: none;
+        li {
+            margin-bottom: 15px;
+        }
+        a {
+            position: relative;
+            padding-bottom: 2px;
+            color: $brand-primary;
+            &::after {
+                position: absolute;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 1px;
+                margin: 0 auto;
+                background-color: $brand-primary;
+                content: "";
+                transition: .2s;
+            }
+            &:hover {
+                text-decoration: none;
+                &::after {
+                    width: calc(100% - 60px);
+                }
+            }
+        }
+    }
+}
+
+.calculate-giving {
+    input {
+        width: 80px;
+        padding: 0 15px;
+        font-size: 22px;
+        font-weight: 700;
+        color: $brand-primary;
+        border: 0;
+        border-bottom: 1px solid $brand-primary;
+        transition: .2s;
+        @include media-breakpoint-up(lg) {
+            width: 150px;
+            font-size: 30px;
+        }
+        &:focus {
+            outline: 0;
+        }
+        &:read-only {
+            background-color: #F7F7F7;
+        }
+    }
+}
+
+.video-player {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10000;
+    display: none;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,.7);
+    opacity: 0;
+    transition: opacity .3s ease;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+    .close-btn {
+        position: absolute;
+        top: -40px;
+        right: 0;
+        z-index: 100;
+        display: inline-block;
+        padding: 3px 15px 4px;
+        color: $brand-primary;
+        cursor: pointer;
+        background-color: transparent;
+        border-radius: 0;
+        transition: all .25s ease;
+        @media only screen and (max-height: 414px) {
+            top: 0;
+            right: -35px;
+        }
+        &::after {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            width: 40px;
+            height: 40px;
+            padding-top: 10px;
+            color: #FFF;
+            content: "";
+        }
+        &:hover {
+            background-color: $brand-primary;
+        }
+    }
+    .player-container {
+        position: absolute;
+        top: 0;
+        left: 20%;
+        z-index: 1;
+        display: table;
+        width: 60%;
+        height: 100%;
+        transition: all .5s ease;
+    }
+    .player-inner-wrap {
+        position: relative;
+        display: table-cell;
+        text-align: center;
+        vertical-align: middle;
+    }
+    .iframe-wrapper {
+        position: relative;
+        width: 100%;
+        height: 0;
+        padding-bottom: 56.25%;
+        background-color: #121212;
+        box-shadow: 0 0 25px rgba(0,0,0,.2);
+        backface-visibility: hidden;
+        transform-style: preserve-3d;
+        iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    }
+    &.zoomed {
+        .player-container {
+            left: 15%;
+            width: 70%;
+            @media only screen and (max-width: 760px) {
+                left: 5%;
+                width: 90%;
+            }
+        }
+    }
+}

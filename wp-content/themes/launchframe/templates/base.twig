@@ -1,0 +1,30 @@
+{% block html_head_container %}
+
+{% include 'html-header.twig' %}
+	{% block head %}
+	{% endblock %}
+	</head>
+{% endblock %}
+	<body class="{{body_class}}" data-template="base.twig">
+		<div class="u-abs-fill u-bg-img" style="position: fixed; background-image: url('{{theme.path}}/assets/dist/img/bg.png');"></div>
+		<div class="container">
+			<header class="site-header">
+				<a href="/"><img src="{{theme.path}}/assets/dist/img/logo-mark.png"></a>
+			</header>
+
+			<main class="site-main">
+				{% include 'nav.twig' %}
+				{% block content %}
+					Sorry, no content
+				{% endblock %}
+			</main>
+
+			{% block footer %}
+				<footer class="site-footer">
+					{% include 'footer.twig' %}
+				</footer>
+				{{ function('wp_footer') }}
+			{% endblock %}
+		</div>
+	</body>
+</html>
