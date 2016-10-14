@@ -327,25 +327,34 @@ footer {
     }
 }
 
+input {
+    width: 100%;
+    padding: 0 15px;
+    font-size: 22px;
+    font-weight: 700;
+    color: $brand-primary;
+    border: 0;
+    border-bottom: 1px solid $brand-primary;
+    transition: .2s;
+    &:focus {
+        outline: 0;
+    }
+    &:read-only {
+        background-color: #F7F7F7;
+    }
+    &[type="submit"] {
+        width: auto;
+        color: #FFF;
+        background-color: $brand-primary;
+    }
+}
+
 .calculate-giving {
     input {
         width: 80px;
-        padding: 0 15px;
-        font-size: 22px;
-        font-weight: 700;
-        color: $brand-primary;
-        border: 0;
-        border-bottom: 1px solid $brand-primary;
-        transition: .2s;
         @include media-breakpoint-up(lg) {
             width: 150px;
             font-size: 30px;
-        }
-        &:focus {
-            outline: 0;
-        }
-        &:read-only {
-            background-color: #F7F7F7;
         }
     }
 }

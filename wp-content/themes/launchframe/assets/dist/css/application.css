@@ -5852,8 +5852,8 @@ footer {
       .card ul a:hover::after {
         width: calc(100% - 60px); }
 
-.calculate-giving input {
-  width: 80px;
+input {
+  width: 100%;
   padding: 0 15px;
   font-size: 22px;
   font-weight: 700;
@@ -5862,14 +5862,21 @@ footer {
   border-bottom: 1px solid #53CAFE;
   -webkit-transition: .2s;
           transition: .2s; }
+  input:focus {
+    outline: 0; }
+  input:read-only {
+    background-color: #F7F7F7; }
+  input[type="submit"] {
+    width: auto;
+    color: #FFF;
+    background-color: #53CAFE; }
+
+.calculate-giving input {
+  width: 80px; }
   @media (min-width: 960px) {
     .calculate-giving input {
       width: 150px;
       font-size: 30px; } }
-  .calculate-giving input:focus {
-    outline: 0; }
-  .calculate-giving input:read-only {
-    background-color: #F7F7F7; }
 
 .video-player {
   position: fixed;

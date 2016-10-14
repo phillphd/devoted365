@@ -17,6 +17,33 @@ $( document ).ready(function() {
                 });
             }
         },
+        commit: {
+            test: function() {
+                return true;
+            },
+            run: function() {
+                $("form.commitment-card").on("submit", function(event) {
+                    event.preventDefault();
+                    $.post({
+                        url: '/email-commitment',
+                        data: {
+                            'annualGift': $("[name=annual-gift]").val(),
+                            'devotedGift': $("[name=annual-addition]").val(),
+                            'oneTimeGift': $("[name=one-time]").val(),
+                            'oneYearGift': $("[name=total]").val(),
+                            'twoYearGift': $("[name=campaign-double]").val(),
+                            'firstName': $("[name=fname]").val(),
+                            'lastName': $("[name=lname]").val(),
+                            'emailAddress': $("[name=email]").val(),
+                            'phoneNumber': $("[name=phone]").val()
+                        },
+                        success: function(data){
+                            console.log(data);
+                        }
+                    });
+                });
+            }
+        },
         giving: {
             test: function() {
                 return true;

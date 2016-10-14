@@ -2,8 +2,15 @@
 
 {% block content %}
 
+<form action="/" method="POST" class="commitment-card">
 <section>
-	<div class="row vm-xs-top-4 vm-xs-bottom-2 vm-lg-top-5 vm-lg-bottom-5">
+	<div class="row vm-xs-top-3 vm-lg-top-5">
+		<div class="col-lg-8 offset-lg-2">
+			<h3>Commitment Card</h3>
+			<p>This worksheet will help you calculate how much you intend to give to the Devoted / 365 generosity initiative. If you have any questions, please <a href="mailto:office@therocc.com">contact us</a>.</p>
+		</div>
+	</div>
+	<div class="row vm-xs-top-2 vm-xs-bottom-2">
 		<div class="col-lg-8 offset-lg-2 calculate-giving">
 			<p>$<input type="number" pattern=" 0+\.[0-9]*[1-9][0-9]*$" onkeypress="return event.charCode >= 48 && event.charCode <= 57" class="annual-gift" name="annual-gift" placeholder="0"> What I normally give in a year</p>
 			<p>$<input type="number" pattern=" 0+\.[0-9]*[1-9][0-9]*$" onkeypress="return event.charCode >= 48 && event.charCode <= 57" class="annual-addition" name="annual-addition" placeholder="0"> My expanded generosity for Devoted / 365</p>
@@ -12,11 +19,20 @@
 			<p>$<input type="number" pattern=" 0+\.[0-9]*[1-9][0-9]*$" onkeypress="return event.charCode >= 48 && event.charCode <= 57" class="campaign-double" name="campaign-double" placeholder="0" readonly> <strong>Over two years</strong></p>
 		</div>
 	</div>
-	<div class="row vm-xs-top-4 vm-xs-bottom-2 vm-lg-top-5 vm-lg-bottom-5">
+	<div class="row vm-xs-top-4 vm-xs-bottom-2 vm-lg-top-5 vm-lg-bottom-4">
+		<div class="col-lg-4 offset-lg-2">
+			<input type="text" name="fname" class="vm-xs-bottom-2" placeholder="First Name" required/>
+			<input type="email" name="email" class="vm-xs-bottom-2" placeholder="example@gmail.com" required/>
+		</div>
+		<div class="col-lg-4">
+			<input type="text" name="lname" class="vm-xs-bottom-2" placeholder="Last Name" required/>
+			<input type="text" name="phone" class="vm-xs-bottom-2" placeholder="Phone Number" />
+		</div>
 		<div class="col-lg-8 offset-lg-2">
-			Make a commitment
+			<input type="submit" value="Make Commitment" class="btn">
 		</div>
 	</div>
 </section>
+</form>
 
 {% endblock %}
