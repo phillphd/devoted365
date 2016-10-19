@@ -40,7 +40,7 @@ $(document).ready(function () {
                                 'phoneNumber': $("[name=phone]").val()
                             },
                             success: function success(data) {
-                                console.log(data);
+                                $(".cc-info").html("<p class=\"text-xs-center\">Thank you for your commitment.</p>");
                             }
                         });
                     });
