@@ -27,6 +27,15 @@ h6 {
     font-weight: 700;
 }
 
+.single-post {
+    h1 {
+        margin-bottom: 10px;
+    }
+    h4 {
+        margin-bottom: 50px;
+    }
+}
+
 header,
 main,
 footer {
@@ -445,5 +454,42 @@ input {
                 width: 90%;
             }
         }
+    }
+}
+
+.devotional-links {
+    display: flex;
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    flex-direction: row;
+    flex-wrap: wrap;
+    li {
+        position: relative;
+        display: inline-block;
+        width: calc(20% - 10px);
+        padding: 40px 20px;
+        margin: 5px;
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: $brand-primary;
+        text-align: center;
+        text-transform: uppercase;
+        background-color: #F7F7F7;
+        transition: .2s;
+        &:hover {
+            color: #4D4D4D;
+            background-color: fade-out($brand-primary, .9);
+        }
+    }
+    a {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 1px solid $brand-primary;
+        border-radius: 2px;
+        content: "";
     }
 }

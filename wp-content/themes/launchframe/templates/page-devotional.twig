@@ -1,0 +1,19 @@
+{% extends "base.twig" %}
+{% block content %}
+<section>
+	<div class="row vm-xs-top-2 vm-xs-bottom-2 vm-lg-top-4 vm-lg-bottom-4">
+		<div class="col-xs-12 vm-xs-bottom-2">
+			<h1 style="margin-left: 5px;">Daily Session</h1>
+		</div>
+		<div class="col-xs-12">
+			{% if posts %}
+				<ul class="devotional-links">
+				{% for post in posts %}
+					<li>{{post.title}}<a href="{{post.link}}"></a></li>
+				{% endfor %}
+				</ul>
+			{% endif %}
+		</div>
+	</div>
+</section>
+{% endblock %}

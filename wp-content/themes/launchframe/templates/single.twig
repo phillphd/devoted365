@@ -1,18 +1,26 @@
 {% extends "base.twig" %}
 
 {% block content %}
-	<div class="content-wrapper">
-		<article class="post-type-{{post.post_type}}" id="post-{{post.ID}}">
-			<section class="article-content">
-				<h1 class="article-h1">{{post.title}}</h1>
-				<p class="blog-author">
-					<span>By</span><a href="{{post.author.path}}"> {{ post.author.name }} </a><span>&bull;</span> {{ post.post_date|date}}
-				</p>
-				<div class="article-body">
-					{{post.content}}
-				</div>
-			</section>
-			{{ function('comments_template') }}
-		</article>
-	</div><!-- /content-wrapper -->
+<section>
+	<div class="row vm-xs-top-4 vm-lg-top-8">
+		<div class="col-lg-8 offset-lg-2">
+			<article class="post-type-{{post.post_type}}" id="post-{{post.ID}}">
+				<section class="article-content">
+					<h1 class="article-h1 vm-xs-bottom-2">{{post.title}}</h1>
+					<div class="article-body">
+						{{post.content}}
+					</div>
+				</section>
+			</article>
+		</div>
+	</div>
+	<div class="row vm-xs-top-5 vm-xs-bottom-1 vm-lg-bottom-5">
+		<div class="col-xs-6 col-lg-5 offset-lg-1">
+			{{ function('previous_post_link') }}
+		</div>
+		<div class="col-xs-6 col-lg-5 text-xs-right">
+			{{ function('next_post_link') }}
+		</div>
+	</div>
+</section>
 {% endblock %}
