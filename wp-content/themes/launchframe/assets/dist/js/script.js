@@ -8,6 +8,16 @@ $(document).ready(function () {
 
         var theWindow = $(window);
         var wb = {
+            nav: {
+                test: function test() {
+                    return true;
+                },
+                run: function run() {
+                    $("body").on("click", ".nav-trigger", function () {
+                        $("body").toggleClass("nav--open");
+                    });
+                }
+            },
             faq: {
                 test: function test() {
                     return true;

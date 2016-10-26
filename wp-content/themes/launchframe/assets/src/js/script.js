@@ -6,6 +6,16 @@ $( document ).ready(function() {
 
     var theWindow = $(window);
     var wb = {
+        nav: {
+            test: function() {
+                return true;
+            },
+            run: function() {
+                $("body").on("click", ".nav-trigger", function() {
+                    $("body").toggleClass("nav--open");
+                });
+            }
+        },
         faq: {
             test: function() {
                 return true;
