@@ -21,6 +21,6 @@ $args = array(
 
 $data = Timber::get_context();
 $data['posts'] = Timber::get_posts($args);
-$templates = array( 'page-devotional.twig' );
+$templates = array( 'page-readingguide.twig' );
 
 Timber::render( $templates, $data );
