@@ -5598,6 +5598,12 @@ h1 {
     h1 {
       font-size: 2.5rem; } }
 
+.footnote {
+  margin-top: 60px;
+  font-size: 10px;
+  text-align: center;
+  text-transform: uppercase; }
+
 .single-post h1 {
   margin-bottom: 10px; }
 
