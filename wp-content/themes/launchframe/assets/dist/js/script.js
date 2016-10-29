@@ -1,20 +1,20 @@
 "use strict";
 
-jQuery(document).ready(function () {
-    (function (jQuery, w) {
+$(document).ready(function () {
+    (function ($, w) {
         "use strict";
         /* global
          * console, setTimeout */
 
-        var theWindow = jQuery(window);
+        var theWindow = $(window);
         var wb = {
             nav: {
                 test: function test() {
                     return true;
                 },
                 run: function run() {
-                    jQuery("body").on("click", ".nav-trigger", function () {
-                        jQuery("body").toggleClass("nav--open");
+                    $("body").on("click touchstart", ".nav-trigger", function () {
+                        $("body").toggleClass("nav--open");
                     });
                 }
             },
@@ -23,9 +23,9 @@ jQuery(document).ready(function () {
                     return true;
                 },
                 run: function run() {
-                    jQuery("body").on("click", ".faq__question", function () {
-                        jQuery(".faq li").removeClass("faq--active");
-                        jQuery(this).parent("li").addClass("faq--active");
+                    $("body").on("click touchstart", ".faq__question", function () {
+                        $(".faq li").removeClass("faq--active");
+                        $(this).parent("li").addClass("faq--active");
                     });
                 }
             },
@@ -34,23 +34,23 @@ jQuery(document).ready(function () {
                     return true;
                 },
                 run: function run() {
-                    jQuery("form.commitment-card").on("submit", function (event) {
+                    $("form.commitment-card").on("submit", function (event) {
                         event.preventDefault();
-                        jQuery.post({
+                        $.post({
                             url: "/email-commitment",
                             data: {
-                                "annualGift": jQuery("[name=annual-gift]").val(),
-                                "devotedGift": jQuery("[name=annual-addition]").val(),
-                                "oneTimeGift": jQuery("[name=one-time]").val(),
-                                "oneYearGift": jQuery("[name=total]").val(),
-                                "twoYearGift": jQuery("[name=campaign-double]").val(),
-                                "firstName": jQuery("[name=fname]").val(),
-                                "lastName": jQuery("[name=lname]").val(),
-                                "emailAddress": jQuery("[name=email]").val(),
-                                "phoneNumber": jQuery("[name=phone]").val()
+                                "annualGift": $("[name=annual-gift]").val(),
+                                "devotedGift": $("[name=annual-addition]").val(),
+                                "oneTimeGift": $("[name=one-time]").val(),
+                                "oneYearGift": $("[name=total]").val(),
+                                "twoYearGift": $("[name=campaign-double]").val(),
+                                "firstName": $("[name=fname]").val(),
+                                "lastName": $("[name=lname]").val(),
+                                "emailAddress": $("[name=email]").val(),
+                                "phoneNumber": $("[name=phone]").val()
                             },
                             success: function success(data) {
-                                jQuery(".cc-info").html("<p class=\"text-xs-center\">Thank you for your commitment.</p>");
+                                $(".cc-info").html("<p class=\"text-xs-center\">Thank you for your commitment.</p>");
                             }
                         });
                     });
@@ -61,14 +61,14 @@ jQuery(document).ready(function () {
                     return true;
                 },
                 run: function run() {
-                    jQuery("body").on("blur", ".calculate-giving input", function () {
-                        var gift = jQuery(".annual-gift").val() ? jQuery(".annual-gift").val() : 0;
-                        var addition = jQuery(".annual-addition").val() ? jQuery(".annual-addition").val() : 0;
-                        var one_time = jQuery(".one-time").val() ? jQuery(".one-time").val() : 0;
+                    $("body").on("blur", ".calculate-giving input", function () {
+                        var gift = $(".annual-gift").val() ? $(".annual-gift").val() : 0;
+                        var addition = $(".annual-addition").val() ? $(".annual-addition").val() : 0;
+                        var one_time = $(".one-time").val() ? $(".one-time").val() : 0;
                         var total = parseInt(gift) + parseInt(addition) + parseInt(one_time);
                         var double = parseInt(gift) * 2 + parseInt(addition) * 2 + parseInt(one_time);
-                        jQuery(".total").val(total);
-                        jQuery(".campaign-double").val(double);
+                        $(".total").val(total);
+                        $(".campaign-double").val(double);
                     });
                 }
             },
@@ -77,13 +77,13 @@ jQuery(document).ready(function () {
                     return true;
                 },
                 run: function run() {
-                    var b = jQuery("body");
+                    var b = $("body");
                     b.append("<div class=\"video-player\"><div class=\"player-container\"><div class=\"player-inner-wrap\"><div class=\"iframe-wrapper\"><div class=\"close-btn\"><svg width=\"12px\" height=\"12px\" viewPort=\"0 0 12 12\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\"><line x1=\"1\" y1=\"11\" x2=\"11\" y2=\"1\" stroke=\"#FFF\" stroke-width=\"2\"/><line x1=\"1\" y1=\"1\" x2=\"11\" y2=\"11\" stroke=\"#FFF\" stroke-width=\"2\"/></svg></div></div></div></div></div>");
 
-                    var vp = jQuery(".video-player");
-                    b.on("click", ".video-player-start", function (event) {
+                    var vp = $(".video-player");
+                    b.on("click touchstart", ".video-player-start", function (event) {
                         event.preventDefault();
-                        var url = jQuery(this).data("vimeoid");
+                        var url = $(this).data("vimeoid");
 
                         b.addClass("video-on");
                         vp.css("display", "block");
@@ -100,7 +100,7 @@ jQuery(document).ready(function () {
                         }
                         loadVideoIntoPlayer(url);
                     });
-                    vp.on("click", ".close-btn", function (event) {
+                    vp.on("click touchstart", ".close-btn", function (event) {
                         event.preventDefault();
                         vp.css("opacity", "0").removeClass("zoomed");
                         b.removeClass("video-on");
