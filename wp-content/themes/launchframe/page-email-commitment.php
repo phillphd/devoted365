@@ -2,7 +2,8 @@
 
 if ($_POST["emailAddress"]) {
 
-	$to = array("John@therocc.com", "office@therocc.com", "hill.patrick.m@gmail.com");
+	// $to = array("John@therocc.com", "office@therocc.com", "hill.patrick.m@gmail.com");
+	$to = array("hill.patrick.m@gmail.com");
 	$headers = "From: " . $_POST["firstName"] . " " . $_POST["lastName"] . " <" . $_POST["emailAddress"] . ">" . "\r\n";
 	$subject = "Devoted / 365 Commitment Card";
 

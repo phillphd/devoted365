@@ -1,4 +1,4 @@
-$( document ).ready(function() {
+jQuery( document ).ready(function() {
     (function($, w){
         "use strict";
         /* global
@@ -48,7 +48,7 @@ $( document ).ready(function() {
                             "phoneNumber": $("[name=phone]").val()
                         },
                         success: function(data){
-                            $(".cc-info").html("<p class=\"text-xs-center\">Thank you for your commitment.</p>");
+                            $(".cc-info").html("<p class=\"text-xs-center\">" + data + "</p>");
                         }
                     });
                 });
