@@ -2,8 +2,8 @@
 
 if ($_POST["emailAddress"]) {
 
-	// $to = array("John@therocc.com", "office@therocc.com", "hill.patrick.m@gmail.com");
-	$to = array("hill.patrick.m@gmail.com");
+	$to = array("John@therocc.com", "office@therocc.com", "hill.patrick.m@gmail.com");
+	// $to = array("hill.patrick.m@gmail.com");
 	$headers = "From: " . $_POST["firstName"] . " " . $_POST["lastName"] . " <" . $_POST["emailAddress"] . ">" . "\r\n";
 	$subject = "Devoted / 365 Commitment Card";
 
@@ -20,7 +20,7 @@ if ($_POST["emailAddress"]) {
 
 	wp_mail( $to, $subject, $message, $headers );
 
-	return "Commitment Sent Successfully";
+	echo "Commitment Sent Successfully";
 } else {
-	return "Commitment Not Made";
+	echo "Commitment Not Made";
 }
